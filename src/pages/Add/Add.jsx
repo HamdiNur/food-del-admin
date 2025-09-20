@@ -2,6 +2,9 @@ import React, {  useState } from 'react';
 import "./Add.css"
 import { assets } from '../../assets/assets';
 import axios from "axios"
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 const Add = () => {
     const url="http://localhost:4000";
     const[image,setImage]=useState(false);
@@ -33,6 +36,7 @@ const response = await axios.post(`${url}/api/food/add`, formData);
         category:"Salad"
          })
          setImage(false)
+         toast.success(response.data.message)
         } 
         else{
 
